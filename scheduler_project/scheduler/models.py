@@ -11,9 +11,6 @@ class Employee(models.Model):
     full_name = models.CharField(max_length=100)
     position = models.CharField(max_length=20, choices=POSITION_CHOICES, default='server')
     photo_url = models.TextField()
-    # need to check how to link this
-    # availability = models.ForeignKey(Availability, on_delete=models.CASCADE, related_name='availability')
-    # unavailability = models.ForeignKey(Unavailability, on_delete=models.CASCADE, related_name='unavailability')
     sales = models.IntegerField()
     rating = models.CharField(max_length=100)
 
@@ -64,9 +61,11 @@ class ScheduleByShift(models.Model):
     date = models.DateField()
     shift = models.CharField(max_length=30, choices=SHIFT_CHOICES)
     num_of_sections = models.IntegerField()
-    section_red = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name='schedule')
+    section_red = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name='schedule', null=True)
+    # section_orange = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name='schedule')
+    # section_yellow = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name='schedule')
 
-    def __str__(self):
+    def __repr__(self):
         return self.date
 
 AVAILABILITY_CHOICES = (
