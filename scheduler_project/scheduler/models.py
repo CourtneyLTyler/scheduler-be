@@ -36,13 +36,6 @@ class Manager(models.Model):
         return self.full_name
 
 
-class FloorPlan(models.Model):
-    num_of_sections = models.IntegerField()
-
-    def __str__(self):
-        return self.num_of_sections
-
-
 COLOR_CHOICES = (
     ('red', 'Red'),
     ('orange', 'Orange'),
