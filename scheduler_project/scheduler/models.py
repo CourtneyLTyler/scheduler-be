@@ -54,25 +54,17 @@ class Section(models.Model):
         return self.color
 
 
-DAYOFWEEK_CHOICES = (
-    ('monday', 'Monday'),
-    ('tuesday', 'Tuesday'),
-    ('wednesday', 'Wednesday'),
-    ('thursday', 'Thursday'),
-    ('friday', 'Friday'),
-    ('saturday', 'Saturday'),
-    ('sunday', 'Sunday')
+SHIFT_CHOICES = (
+    ('AM', 'Morning Shift'),
+    ('AFT', 'Afternoon Shift'),
+    ('PM', 'Evening Shift')
 )
 
 class ScheduleByShift(models.Model):
     date = models.DateField()
-    day_of_week = models.CharField(max_length=20, choices=DAYOFWEEK_CHOICES, default='monday')
-    am_staff_num = models.IntegerField()
-    aft_staff_num = models.IntegerField()
-    pm_staff_num = models.IntegerField()
-    am_sec_num = models.IntegerField()
-    aft_sec_num = models.IntegerField()
-    pm_sec_num = models.IntegerField()
+    shift = models.CharField(max_length=30, choices=SHIFT_CHOICES)
+    num_of_sections = models.IntegerField()
+    section_red = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name='schedule')
 
     def __str__(self):
         return self.date
