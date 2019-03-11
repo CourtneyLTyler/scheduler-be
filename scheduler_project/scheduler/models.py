@@ -11,6 +11,9 @@ class ScheduleByDay(models.Model):
     aftSecNum = models.IntegerField()
     pmSecNum = models.IntegerField()
 
+    def __str__(self):
+        return self.date
+
 
 class Unavailability(models.Model):
     date = models.DateField()
@@ -22,6 +25,9 @@ class Unavailability(models.Model):
         ["I am available", "I am not available"]))
     pm = models.CharField(max_length=20, required=True, choices=set(
         ["I am available", "I am not available"]))
+
+    def __str__(self):
+        return self.employee
 
 
 class WeeklyAvailability(models.Model):
@@ -69,3 +75,6 @@ class WeeklyAvailability(models.Model):
         ["I am available", "I am not available"]))
     sunPm = models.CharField(max_length=20, required=True, choices=set(
         ["I am available", "I am not available"]))
+
+    def __str__(self):
+        return self.employee
