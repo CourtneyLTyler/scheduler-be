@@ -2,9 +2,9 @@ from django.db import models
 
 
 POSITION_CHOICES = (
-('server', 'SERVER'),
-('host', 'HOST'),
-('bartender', 'BARTENDER')
+('server', 'Server'),
+('host', 'Host'),
+('bartender', 'Bartender')
 )
 
 class Employee(models.Model):
@@ -22,9 +22,9 @@ class Employee(models.Model):
 
 
 MANAGER_CHOICES = (
-    ('manager', 'MANAGER'),
-    ('general_manager', 'GENERAL_MANAGER'),
-    ('assistant_manager', 'ASSISTANT_MANAGER')
+    ('manager', 'Manager'),
+    ('general_manager', 'General Manager'),
+    ('assistant_manager', 'Assistant Manager')
 )
 
 class Manager(models.Model):
@@ -44,12 +44,12 @@ class FloorPlan(models.Model):
 
 
 COLOR_CHOICES = (
-    ('red', 'RED'),
-    ('orange', 'ORANGE'),
-    ('yellow', 'YELLOW'),
-    ('green', 'GREEN'),
-    ('blue', 'BLUE'),
-    ('purple', 'PURPLE')
+    ('red', 'Red'),
+    ('orange', 'Orange'),
+    ('yellow', 'Yellow'),
+    ('green', 'Green'),
+    ('blue', 'Blue'),
+    ('purple', 'Purple')
 )
 
 class Section(models.Model):
@@ -62,13 +62,13 @@ class Section(models.Model):
 
 
 DAYOFWEEK_CHOICES = (
-    ('monday', 'MONDAY'),
-    ('tuesday', 'TUESDAY'),
-    ('wednesday', 'WEDNESDAY'),
-    ('thursday', 'THURSDAY'),
-    ('friday', 'FRIDAY'),
-    ('saturday', 'SATURDAY'),
-    ('sunday', 'SUNDAY')
+    ('monday', 'Monday'),
+    ('tuesday', 'Tuesday'),
+    ('wednesday', 'Wednesday'),
+    ('thursday', 'Thursday'),
+    ('friday', 'Friday'),
+    ('saturday', 'Saturday'),
+    ('sunday', 'Sunday')
 )
 
 class ScheduleByDay(models.Model):
@@ -85,8 +85,8 @@ class ScheduleByDay(models.Model):
         return self.date
 
 AVAILABILITY_CHOICES = (
-    ('I am available', 'I AM AVAILABLE'),
-    ('I am not available', 'I AM NOT AVAILABLE')
+    ('available', 'I AM available'),
+    ('unavailable', 'I am NOT available')
 )
 
 
@@ -94,9 +94,9 @@ class Unavailability(models.Model):
     date = models.DateField()
     employee = models.ForeignKey(
         Employee, on_delete=models.CASCADE, related_name='unavailability')
-    am = models.CharField(max_length=20, choices=AVAILABILITY_CHOICES, default='I am available')
-    aft = models.CharField(max_length=20, choices=AVAILABILITY_CHOICES, default='I am available')
-    pm = models.CharField(max_length=20, choices=AVAILABILITY_CHOICES, default='I am available')
+    am = models.CharField(max_length=20, choices=AVAILABILITY_CHOICES, default='available')
+    aft = models.CharField(max_length=20, choices=AVAILABILITY_CHOICES, default='available')
+    pm = models.CharField(max_length=20, choices=AVAILABILITY_CHOICES, default='available')
 
     def __str__(self):
         return self.employee
@@ -105,27 +105,27 @@ class Unavailability(models.Model):
 class WeeklyAvailability(models.Model):
     employee = models.ForeignKey(
         Employee, on_delete=models.CASCADE, related_name='weekly_availability')
-    mon_am = models.CharField(max_length=20, choices=AVAILABILITY_CHOICES, default='I am available')
-    mon_aft = models.CharField(max_length=20, choices=AVAILABILITY_CHOICES, default='I am available')
-    mon_pm = models.CharField(max_length=20, choices=AVAILABILITY_CHOICES, default='I am available')
-    tue_am = models.CharField(max_length=20, choices=AVAILABILITY_CHOICES, default='I am available')
-    tue_aft = models.CharField(max_length=20, choices=AVAILABILITY_CHOICES, default='I am available')
-    tue_pm = models.CharField(max_length=20, choices=AVAILABILITY_CHOICES, default='I am available')
-    wed_am = models.CharField(max_length=20, choices=AVAILABILITY_CHOICES, default='I am available')
-    wed_aft = models.CharField(max_length=20, choices=AVAILABILITY_CHOICES, default='I am available')
-    wed_pm = models.CharField(max_length=20, choices=AVAILABILITY_CHOICES, default='I am available')
-    thu_am = models.CharField(max_length=20, choices=AVAILABILITY_CHOICES, default='I am available')
-    thu_aft = models.CharField(max_length=20, choices=AVAILABILITY_CHOICES, default='I am available')
-    thu_pm = models.CharField(max_length=20, choices=AVAILABILITY_CHOICES, default='I am available')
-    fri_am = models.CharField(max_length=20, choices=AVAILABILITY_CHOICES, default='I am available')
-    fri_aft = models.CharField(max_length=20, choices=AVAILABILITY_CHOICES, default='I am available')
-    fri_pm = models.CharField(max_length=20, choices=AVAILABILITY_CHOICES, default='I am available')
-    sat_am = models.CharField(max_length=20, choices=AVAILABILITY_CHOICES, default='I am available')
-    sat_aft = models.CharField(max_length=20, choices=AVAILABILITY_CHOICES, default='I am available')
-    sat_pm = models.CharField(max_length=20, choices=AVAILABILITY_CHOICES, default='I am available')
-    sun_am = models.CharField(max_length=20, choices=AVAILABILITY_CHOICES, default='I am available')
-    sun_aft = models.CharField(max_length=20, choices=AVAILABILITY_CHOICES, default='I am available')
-    sun_pm = models.CharField(max_length=20, choices=AVAILABILITY_CHOICES, default='I am available')
+    mon_am = models.CharField(max_length=20, choices=AVAILABILITY_CHOICES, default='available')
+    mon_aft = models.CharField(max_length=20, choices=AVAILABILITY_CHOICES, default='available')
+    mon_pm = models.CharField(max_length=20, choices=AVAILABILITY_CHOICES, default='available')
+    tue_am = models.CharField(max_length=20, choices=AVAILABILITY_CHOICES, default='available')
+    tue_aft = models.CharField(max_length=20, choices=AVAILABILITY_CHOICES, default='available')
+    tue_pm = models.CharField(max_length=20, choices=AVAILABILITY_CHOICES, default='available')
+    wed_am = models.CharField(max_length=20, choices=AVAILABILITY_CHOICES, default='available')
+    wed_aft = models.CharField(max_length=20, choices=AVAILABILITY_CHOICES, default='available')
+    wed_pm = models.CharField(max_length=20, choices=AVAILABILITY_CHOICES, default='available')
+    thu_am = models.CharField(max_length=20, choices=AVAILABILITY_CHOICES, default='available')
+    thu_aft = models.CharField(max_length=20, choices=AVAILABILITY_CHOICES, default='available')
+    thu_pm = models.CharField(max_length=20, choices=AVAILABILITY_CHOICES, default='available')
+    fri_am = models.CharField(max_length=20, choices=AVAILABILITY_CHOICES, default='available')
+    fri_aft = models.CharField(max_length=20, choices=AVAILABILITY_CHOICES, default='available')
+    fri_pm = models.CharField(max_length=20, choices=AVAILABILITY_CHOICES, default='available')
+    sat_am = models.CharField(max_length=20, choices=AVAILABILITY_CHOICES, default='available')
+    sat_aft = models.CharField(max_length=20, choices=AVAILABILITY_CHOICES, default='available')
+    sat_pm = models.CharField(max_length=20, choices=AVAILABILITY_CHOICES, default='available')
+    sun_am = models.CharField(max_length=20, choices=AVAILABILITY_CHOICES, default='available')
+    sun_aft = models.CharField(max_length=20, choices=AVAILABILITY_CHOICES, default='available')
+    sun_pm = models.CharField(max_length=20, choices=AVAILABILITY_CHOICES, default='available')
 
     def __str__(self):
         return self.employee
