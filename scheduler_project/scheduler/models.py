@@ -64,7 +64,7 @@ DAYOFWEEK_CHOICES = (
     ('sunday', 'Sunday')
 )
 
-class ScheduleByDay(models.Model):
+class ScheduleByShift(models.Model):
     date = models.DateField()
     day_of_week = models.CharField(max_length=20, choices=DAYOFWEEK_CHOICES, default='monday')
     am_staff_num = models.IntegerField()
