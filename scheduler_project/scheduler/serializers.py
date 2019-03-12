@@ -74,5 +74,5 @@ class UnavailabilitySerializer(serializers.ModelSerializer):
 class WeeklyAvailabilitySerializer(serializers.ModelSerializer):
     class Meta:
         model = WeeklyAvailability
-        fields = ('id', 'employee', 'mon_am', 'tue_am', 'wed_am', 'thu_am', 'fri_am', 'sat_am', 'sun_am', 'mon_aft',
-                  'tue_aft', 'wed_aft', 'thu_aft', 'fri_aft', 'sat_aft', 'sun_aft', 'mon_pm', 'tue_pm', 'wed_pm', 'thu_pm', 'fri_pm', 'sat_pm', 'sun_pm',)
+        fields = ('id', 'employee', 'mon_am', 'tue_am', 'wed_am', 'thu_am', 'fri_am', 'sat_am', 'sun_am', 'mon_aft', 'tue_aft',
+                  'wed_aft', 'thu_aft', 'fri_aft', 'sat_aft', 'sun_aft', 'mon_pm', 'tue_pm', 'wed_pm', 'thu_pm', 'fri_pm', 'sat_pm', 'sun_pm',)
