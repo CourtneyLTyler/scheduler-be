@@ -10,6 +10,10 @@ urlpatterns = [
     url('sections', views.SectionList.as_view(), name='section-list'),
     url('schedulebyshifts', views.ScheduleByShiftList.as_view(),
         name='schedule-by-shift-list'),
+    url('unavailability', views.UnavailabilityList.as_view(),
+        name='unavailability-list'),
+    url('weeklyavailability', views.WeeklyAvailabilityList.as_view(),
+        name='weeklyavailability-list'),
     # url('employee/<int:pk>', views.EmployeeDetail.as_view(), name='employee-detail'),
 ]
 
