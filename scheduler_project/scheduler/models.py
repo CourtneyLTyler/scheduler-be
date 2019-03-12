@@ -107,12 +107,9 @@ class Unavailability(models.Model):
     date = models.DateField()
     employee = models.ForeignKey(
         Employee, on_delete=models.CASCADE, related_name='unavailability')
-    am = models.CharField(
-        max_length=20, choices=AVAILABILITY_CHOICES, default='available')
-    aft = models.CharField(
-        max_length=20, choices=AVAILABILITY_CHOICES, default='available')
-    pm = models.CharField(
-        max_length=20, choices=AVAILABILITY_CHOICES, default='available')
+    am = models.BooleanField(choices=AVAILABILITY_CHOICES, default=True)
+    aft = models.BooleanField(choices=AVAILABILITY_CHOICES, default=True)
+    pm = models.BooleanField(choices=AVAILABILITY_CHOICES, default=True)
 
     def __repr__(self):
         return self.employee
@@ -121,48 +118,27 @@ class Unavailability(models.Model):
 class WeeklyAvailability(models.Model):
     employee = models.ForeignKey(
         Employee, on_delete=models.CASCADE, related_name='weekly_availability')
-    mon_am = models.CharField(
-        max_length=20, choices=AVAILABILITY_CHOICES, default='available')
-    mon_aft = models.CharField(
-        max_length=20, choices=AVAILABILITY_CHOICES, default='available')
-    mon_pm = models.CharField(
-        max_length=20, choices=AVAILABILITY_CHOICES, default='available')
-    tue_am = models.CharField(
-        max_length=20, choices=AVAILABILITY_CHOICES, default='available')
-    tue_aft = models.CharField(
-        max_length=20, choices=AVAILABILITY_CHOICES, default='available')
-    tue_pm = models.CharField(
-        max_length=20, choices=AVAILABILITY_CHOICES, default='available')
-    wed_am = models.CharField(
-        max_length=20, choices=AVAILABILITY_CHOICES, default='available')
-    wed_aft = models.CharField(
-        max_length=20, choices=AVAILABILITY_CHOICES, default='available')
-    wed_pm = models.CharField(
-        max_length=20, choices=AVAILABILITY_CHOICES, default='available')
-    thu_am = models.CharField(
-        max_length=20, choices=AVAILABILITY_CHOICES, default='available')
-    thu_aft = models.CharField(
-        max_length=20, choices=AVAILABILITY_CHOICES, default='available')
-    thu_pm = models.CharField(
-        max_length=20, choices=AVAILABILITY_CHOICES, default='available')
-    fri_am = models.CharField(
-        max_length=20, choices=AVAILABILITY_CHOICES, default='available')
-    fri_aft = models.CharField(
-        max_length=20, choices=AVAILABILITY_CHOICES, default='available')
-    fri_pm = models.CharField(
-        max_length=20, choices=AVAILABILITY_CHOICES, default='available')
-    sat_am = models.CharField(
-        max_length=20, choices=AVAILABILITY_CHOICES, default='available')
-    sat_aft = models.CharField(
-        max_length=20, choices=AVAILABILITY_CHOICES, default='available')
-    sat_pm = models.CharField(
-        max_length=20, choices=AVAILABILITY_CHOICES, default='available')
-    sun_am = models.CharField(
-        max_length=20, choices=AVAILABILITY_CHOICES, default='available')
-    sun_aft = models.CharField(
-        max_length=20, choices=AVAILABILITY_CHOICES, default='available')
-    sun_pm = models.CharField(
-        max_length=20, choices=AVAILABILITY_CHOICES, default='available')
+    mon_am = models.BooleanField(choices=AVAILABILITY_CHOICES, default=True)
+    mon_aft = models.BooleanField(choices=AVAILABILITY_CHOICES, default=True)
+    mon_pm = models.BooleanField( choices=AVAILABILITY_CHOICES, default=True)
+    tue_am = models.BooleanField( choices=AVAILABILITY_CHOICES, default=True)
+    tue_aft = models.BooleanField( choices=AVAILABILITY_CHOICES, default=True)
+    tue_pm = models.BooleanField( choices=AVAILABILITY_CHOICES, default=True)
+    wed_am = models.BooleanField( choices=AVAILABILITY_CHOICES, default=True)
+    wed_aft = models.BooleanField( choices=AVAILABILITY_CHOICES, default=True)
+    wed_pm = models.BooleanField( choices=AVAILABILITY_CHOICES, default=True)
+    thu_am = models.BooleanField( choices=AVAILABILITY_CHOICES, default=True)
+    thu_aft = models.BooleanField( choices=AVAILABILITY_CHOICES, default=True)
+    thu_pm = models.BooleanField( choices=AVAILABILITY_CHOICES, default=True)
+    fri_am = models.BooleanField( choices=AVAILABILITY_CHOICES, default=True)
+    fri_aft = models.BooleanField( choices=AVAILABILITY_CHOICES, default=True)
+    fri_pm = models.BooleanField( choices=AVAILABILITY_CHOICES, default=True)
+    sat_am = models.BooleanField( choices=AVAILABILITY_CHOICES, default=True)
+    sat_aft = models.BooleanField( choices=AVAILABILITY_CHOICES, default=True)
+    sat_pm = models.BooleanField(choices=AVAILABILITY_CHOICES, default=True)
+    sun_am = models.BooleanField( choices=AVAILABILITY_CHOICES, default=True)
+    sun_aft = models.BooleanField( choices=AVAILABILITY_CHOICES, default=True)
+    sun_pm = models.BooleanField( choices=AVAILABILITY_CHOICES, default=True)
 
     def __repr__(self):
         return self.employee
