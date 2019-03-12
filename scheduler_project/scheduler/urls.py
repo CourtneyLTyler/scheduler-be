@@ -8,6 +8,8 @@ urlpatterns = [
     url('employees', views.EmployeeList.as_view(), name='employee-list'),
     url('managers', views.ManagerList.as_view(), name='manager-list'),
     url('sections', views.SectionList.as_view(), name='section-list'),
+    url('schedulebyshifts', views.ScheduleByShiftList.as_view(),
+        name='schedule-by-shift-list'),
     # url('employee/<int:pk>', views.EmployeeDetail.as_view(), name='employee-detail'),
 ]
 

@@ -1,7 +1,5 @@
 from rest_framework import serializers
-from .models import Employee
-from .models import Manager
-from .models import Section
+from .models import Employee, Manager, Section, ScheduleByShift
 
 
 class EmployeeSerializer(serializers.HyperlinkedModelSerializer):
@@ -57,3 +55,10 @@ class SectionSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Section
         fields = ('id', 'date', 'shift', 'color', 'num_of_tables')
+
+
+class ScheduleByShiftSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ScheduleByShift
+        fields = ('id', 'date', 'shift', 'num_of_sections',
+                  'section_red',  'section_yellow',  'section_orange',  'section_green',  'section_blue',  'section_purple', )
