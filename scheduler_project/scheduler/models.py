@@ -47,17 +47,6 @@ COLOR_CHOICES = (
 )
 
 
-class Section(models.Model):
-    color = models.CharField(
-        max_length=20, choices=COLOR_CHOICES, default='red')
-    num_of_tables = models.IntegerField()
-    employee = models.ForeignKey(
-        Employee, on_delete=models.CASCADE, related_name='section')
-
-    def __str__(self):
-        return self.color
-
-
 SHIFT_CHOICES = (
     ('AM', 'Morning Shift'),
     ('AFT', 'Afternoon Shift'),
@@ -65,24 +54,37 @@ SHIFT_CHOICES = (
 )
 
 
+class Section(models.Model):
+    date = models.DateField()
+    shift = models.CharField(max_length=30, choices=SHIFT_CHOICES)
+    color = models.CharField(
+        max_length=20, choices=COLOR_CHOICES, default='red')
+    num_of_tables = models.IntegerField()
+
+    def __str__(self):
+        return self.color
+
+
 class ScheduleByShift(models.Model):
     date = models.DateField()
     shift = models.CharField(max_length=30, choices=SHIFT_CHOICES)
     num_of_sections = models.IntegerField()
-    section_red = models.ForeignKey(
-        Employee, on_delete=models.CASCADE, related_name='schedule', null=True)
-    # section_orange = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name='schedule')
-    # section_yellow = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name='schedule')
+    section_red = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name='shift_schedule', null=True)
+    section_orange = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name='shift_schedule')
+    section_yellow = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name='shift_schedule')
+    section_green = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name='shift_schedule')
+    section_blue = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name='shift_schedule')
+    section_purple = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name='shift_schedule')
+
 
     def __repr__(self):
         return self.date
 
 
 AVAILABILITY_CHOICES = (
-    ('available', 'I AM available'),
-    ('unavailable', 'I am NOT available')
+    (True, 'I AM available'),
+    (False, 'I am NOT available')
 )
-
 
 class Unavailability(models.Model):
     date = models.DateField()
@@ -92,8 +94,8 @@ class Unavailability(models.Model):
         max_length=20, choices=AVAILABILITY_CHOICES, default='available')
     aft = models.CharField(
         max_length=20, choices=AVAILABILITY_CHOICES, default='available')
-    # pm = models.CharField(
-    #     max_length=20, choices=AVAILABILITY_CHOICES, default='available')
+    pm = models.CharField(
+        max_length=20, choices=AVAILABILITY_CHOICES, default='available')
 
     def __repr__(self):
         return self.employee
