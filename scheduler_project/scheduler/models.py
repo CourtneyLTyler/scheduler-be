@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import datetime
 
 
 POSITION_CHOICES = (
@@ -56,7 +57,7 @@ SHIFT_CHOICES = (
 
 class Section(models.Model):
     date = models.DateField()
-    shift = models.CharField(max_length=30, choices=SHIFT_CHOICES)
+    shift = models.CharField(max_length=30, choices=SHIFT_CHOICES, default='AM')
     color = models.CharField(
         max_length=20, choices=COLOR_CHOICES, default='red')
     num_of_tables = models.IntegerField()
@@ -66,15 +67,21 @@ class Section(models.Model):
 
 
 class ScheduleByShift(models.Model):
-    date = models.DateField()
+    date = models.DateField(blank=True, null=True)
     shift = models.CharField(max_length=30, choices=SHIFT_CHOICES)
     num_of_sections = models.IntegerField()
-    section_red = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name='shift_schedule', null=True)
-    section_orange = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name='shift_schedule')
-    section_yellow = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name='shift_schedule')
-    section_green = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name='shift_schedule')
-    section_blue = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name='shift_schedule')
-    section_purple = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name='shift_schedule')
+
+    section_red = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name='red', default='closed')
+
+    section_orange = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name='orange', default='closed')
+
+    section_yellow = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name='yellow', default='closed')
+
+    section_green = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name='green', default='closed')
+
+    section_blue = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name='blue', default='closed')
+
+    section_purple = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name='purple', default='closed')
 
 
     def __repr__(self):
