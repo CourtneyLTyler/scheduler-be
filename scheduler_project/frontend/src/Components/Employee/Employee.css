@@ -1,0 +1,11 @@
+.employee-container {
+    border: solid blue 5px;
+    margin: 5px;
+    padding: 10px;
+}
+
+.employee-create-form{
+    border: solid brown 5px;
+    margin: 5px;
+    padding: 10px;
+}
