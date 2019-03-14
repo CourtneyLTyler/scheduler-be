@@ -71,27 +71,27 @@ DEFAULT_EMPLOYEE_ID = 1
 
 
 class ScheduleByShift(models.Model):
-    date = models.DateField(blank=True, null=True)
+    date = models.DateField(null=True)
     shift = models.CharField(max_length=30, choices=SHIFT_CHOICES)
     num_of_sections = models.IntegerField()
 
     section_red = models.ForeignKey(
-        Employee, on_delete=models.CASCADE, related_name='red', default=DEFAULT_EMPLOYEE_ID)
+        Employee, on_delete=models.CASCADE, related_name='red', null=True, blank=True)
 
     section_orange = models.ForeignKey(
-        Employee, on_delete=models.CASCADE, related_name='orange', default=DEFAULT_EMPLOYEE_ID)
+        Employee, on_delete=models.CASCADE, related_name='orange', null=True, blank=True)
 
     section_yellow = models.ForeignKey(
-        Employee, on_delete=models.CASCADE, related_name='yellow', default=DEFAULT_EMPLOYEE_ID)
+        Employee, on_delete=models.CASCADE, related_name='yellow', null=True, blank=True)
 
     section_green = models.ForeignKey(
-        Employee, on_delete=models.CASCADE, related_name='green', default=DEFAULT_EMPLOYEE_ID)
+        Employee, on_delete=models.CASCADE, related_name='green', null=True, blank=True)
 
     section_blue = models.ForeignKey(
-        Employee, on_delete=models.CASCADE, related_name='blue', default=DEFAULT_EMPLOYEE_ID)
+        Employee, on_delete=models.CASCADE, related_name='blue', null=True, blank=True)
 
     section_purple = models.ForeignKey(
-        Employee, on_delete=models.CASCADE, related_name='purple', default=DEFAULT_EMPLOYEE_ID)
+        Employee, on_delete=models.CASCADE, related_name='purple', null=True, blank=True)
 
     def __repr__(self):
         return self.date
