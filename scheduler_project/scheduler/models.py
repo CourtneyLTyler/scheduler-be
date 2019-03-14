@@ -67,7 +67,7 @@ class Section(models.Model):
         return self.color
 
 
-DEFAULT_EMPLOYEE_ID = 1
+# DEFAULT_EMPLOYEE_ID = 1
 
 
 class ScheduleByShift(models.Model):
