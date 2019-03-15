@@ -14,3 +14,9 @@ from django.core.wsgi import get_wsgi_application
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'scheduler_project.settings')
 
 application = get_wsgi_application()
+
+# # added from micropyramid tutorial
+# from whitenoise.django import DjangoWhiteNoise
+
+# application = DjangoWhiteNoise(application)
+# STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
