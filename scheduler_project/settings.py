@@ -30,7 +30,7 @@ SECRET_KEY = '5$b7x3j+d!0oshr0#(6bv&ldh#x!6mt5i@*u(5rttv5aj=+4x2'
 # DEBUG = config(‘DEBUG’, default=False, cast=bool)
 DEBUG = False
 
-ALLOWED_HOSTS = ['scheduler-be.herokuapp.com/']
+ALLOWED_HOSTS = ['herokuapp.com/']
 
 
 # Application definition
