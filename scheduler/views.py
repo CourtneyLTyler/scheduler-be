@@ -10,6 +10,7 @@ class EmployeeList(generics.ListCreateAPIView):
     queryset = Employee.objects.all()
     serializer_class = EmployeeSerializer
 
+
 class EmployeeDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (AllowAny,)
     queryset = Employee.objects.all()
@@ -20,6 +21,7 @@ class ManagerList(generics.ListCreateAPIView):
     permission_classes = (AllowAny,)
     queryset = Manager.objects.all()
     serializer_class = ManagerSerializer
+
 
 class ManagerDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (AllowAny,)
@@ -32,6 +34,7 @@ class SectionList(generics.ListCreateAPIView):
     queryset = Section.objects.all()
     serializer_class = SectionSerializer
 
+
 class SectionDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (AllowAny,)
     queryset = Section.objects.all()
@@ -42,6 +45,7 @@ class ScheduleByShiftList(generics.ListCreateAPIView):
     permission_classes = (AllowAny,)
     queryset = ScheduleByShift.objects.all()
     serializer_class = ScheduleByShiftSerializer
+
 
 class ScheduleByShiftDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (AllowAny,)
@@ -54,6 +58,7 @@ class UnavailabilityList(generics.ListCreateAPIView):
     queryset = Unavailability.objects.all()
     serializer_class = UnavailabilitySerializer
 
+
 class UnavailabilityDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (AllowAny,)
     queryset = Unavailability.objects.all()
@@ -64,6 +69,7 @@ class WeeklyAvailabilityList(generics.ListCreateAPIView):
     permission_classes = (AllowAny,)
     queryset = WeeklyAvailability.objects.all()
     serializer_class = WeeklyAvailabilitySerializer
+
 
 class WeeklyAvailabilityDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (AllowAny,)

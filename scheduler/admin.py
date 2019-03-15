@@ -7,5 +7,3 @@ admin.site.register(Section)
 admin.site.register(ScheduleByShift)
 admin.site.register(Unavailability)
 admin.site.register(WeeklyAvailability)
-
-
