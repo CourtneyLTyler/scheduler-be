@@ -1,2 +1,2 @@
-release: python3 manage.py migrate
+release: heroku manage.py migrate
 web: gunicorn scheduler_project.wsgi --log-file -
