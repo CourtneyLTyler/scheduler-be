@@ -78,7 +78,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'scheduler-be.wsgi.application'
+WSGI_APPLICATION = 'scheduler_project.wsgi.application'
 
 
 # Database
