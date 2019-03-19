@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-# Scheduler App
-
-## Read Me Info is Coming!!!
-=======
-
 # Scheduler
 ## Description
 Scheduler is a full-stack web application that utilizes Django, React, Postgresql, and Python.  It is used to handle scheduling for hospitality businesses such as restaurants and bars.  This app solves the problem of miscommunication in scheduling, and keeps managers from having to create schedules with messy Excel graphs, or by hand.
@@ -71,4 +65,3 @@ Add screenshots
   * [Front-end issue tracker](https://github.com/rc1336/scheduler-fe/issues)
   * [Back-end repo](https://github.com/CourtneyLTyler/scheduler-be)
   * [Back-end issue tracker](https://github.com/CourtneyLTyler/scheduler-be/issues)
->>>>>>> rework
