@@ -1,18 +1,19 @@
 from django.db import models
 from datetime import datetime
 
+    # section_red = models.ForeignKey(
+    #     Employee, on_delete=models.CASCADE, related_name='red', null=True, blank=True)
 
 POSITION_CHOICES = (
+    ('n/a', 'n/a'),
     ('server', 'Server'),
     ('host', 'Host'),
     ('bartender', 'Bartender')
 )
 
-
 class Employee(models.Model):
     full_name = models.CharField(max_length=100)
-    position = models.CharField(
-        max_length=20, choices=POSITION_CHOICES, default='server')
+    position = models.CharField(max_length=20, choices=POSITION_CHOICES)
     photo_url = models.TextField()
     sales = models.IntegerField()
     rating = models.CharField(max_length=100)
@@ -22,6 +23,7 @@ class Employee(models.Model):
 
 
 MANAGER_CHOICES = (
+    ('n/a', 'n/a'),
     ('manager', 'Manager'),
     ('general_manager', 'General Manager'),
     ('assistant_manager', 'Assistant Manager')
@@ -31,7 +33,7 @@ MANAGER_CHOICES = (
 class Manager(models.Model):
     full_name = models.CharField(max_length=100)
     position = models.CharField(
-        max_length=30, choices=MANAGER_CHOICES, default='manager')
+        max_length=30, choices=MANAGER_CHOICES)
     photo_url = models.TextField()
 
     def __str__(self):
@@ -65,10 +67,6 @@ class Section(models.Model):
 
     def __str__(self):
         return self.color
-
-
-# DEFAULT_EMPLOYEE_ID = 1
-
 
 class ScheduleByShift(models.Model):
     date = models.DateField(null=True)
